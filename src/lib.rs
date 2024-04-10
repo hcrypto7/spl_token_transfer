@@ -3,7 +3,7 @@ use solana_program::pubkey::Pubkey;
 use solana_sdk::{
     signature::{Keypair, Signature}, signer::{keypair, Signer}, stake::instruction, system_transaction, sysvar::recent_blockhashes, transaction::Transaction
 };
-use std::{error::Error, io::Sink};
+use std::error::Error;
 
 const LAMPORTS_PER_SOL: f64 = 1000000000.0;
 

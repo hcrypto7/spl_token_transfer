@@ -6,10 +6,11 @@ use serde::{Deserialize};
 use std::fs::File;
 use std::io::BufReader;
 use serde_json::from_reader;
+use csv::Reader;
 
 
 #[derive(Deserialize)]
-struct RPC_Node {
+struct RPCNode {
     rpc_node: String,
 }
 
@@ -19,13 +20,26 @@ const URL: &str = "https://api.devnet.solana.com";
 
 
 fn main() {
+    //--------------------------Set RPC Node from setting.json-----------------------------//
     let file = File::open("setting.json").expect("Failed to open file");
     let reader = BufReader::new(file);
-    let rpc_node_config: RPC_Node = from_reader(reader).expect("Failed to parse JSON");
+    let rpc_node_config: RPCNode = from_reader(reader).expect("Failed to parse JSON");
 
     println!("rpc_node: {}", rpc_node_config.rpc_node);
 
     let rpc_client = RpcClient::new(URL);
+
+    //-----------------------------Load data from data.csv---------------------------------//
+
+
+    let list_file = File::open("data.csv").unwrap();
+    let mut rdr = csv::Reader::from_reader(list_file);
+
+    for result in rdr.records() {
+        let record = result;
+        println!("{:?}", record);
+    }
+
 
     let sender = create_keypair();
     let receiver = create_keypair();
