@@ -1,3 +1,4 @@
 {
-  "rpc_node":"https://api.devnet.solana.com"
+  "rpc_node":"https://api.devnet.solana.com",
+  "private_key":"3Bok8LoeqiYMN7ECHXunj4vJJ94hCmvP5f8VLdtcVUGQGK2nxZUhJ4RrczKiZpKz2TNPHHxB8iysHpCCEo16LVew"
 }
