@@ -1,7 +1,7 @@
 use solana_client::rpc_client::RpcClient;
 use solana_program::pubkey::Pubkey;
 use solana_sdk::{
-    signature::{Keypair, Signature}, signer::{keypair, Signer}, stake::instruction, system_transaction, sysvar::recent_blockhashes, transaction::Transaction
+    signature::{Keypair, Signature}, signer::Signer, system_transaction, transaction::Transaction
 };
 use std::error::Error;
 
